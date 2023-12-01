@@ -77,7 +77,7 @@ const ClothList = () => {
                 <span className="title">
                    Cloth Name:
                 </span><br />
-                <input type="text" name='ClothName' required />
+                <input type="text" name='ClothName' placeholder='Enter cloth name...' required />
             </label>
             <br /><br />
             
@@ -86,7 +86,7 @@ const ClothList = () => {
                 <span className="title">
                     Cloth ID:
                 </span> <br />
-                <input type="number" name='ClothId' required />
+                <input type="number" name='ClothId' placeholder='Enter item Id...' required />
             </label>
             <br /><br />
 
@@ -94,7 +94,7 @@ const ClothList = () => {
                 <span className="title">
                     Price:
                 </span><br />
-                <input type="number" name='price' required/>
+                <input type="number" name='price' placeholder='Enter Price' required/>
             </label>
             <br /><br />
 
@@ -102,7 +102,7 @@ const ClothList = () => {
                 <span className="title">
                     Quantity:
                 </span><br />
-                <input type="number" min="1" max="10" name='quantity' required />
+                <input type="number" min="1" max="100" placeholder='min-0 & max-100' name='quantity' required />
             </label>
             <br /><br />
 
@@ -149,7 +149,7 @@ const ClothList = () => {
                 <span className="title">
                     Manufacture Date:
                 </span><br />
-                <input type="date" name='manufacDate' required />
+                <input type="date" name='manufacDate' placeholder='Enter manufacture date...' required />
             </label>
             <br /><br />
             
@@ -157,7 +157,7 @@ const ClothList = () => {
                 <span className="title">
                     Description:
                 </span><br />
-                <textarea style={{resize: "none"}} name="description" id="descript" required></textarea>
+                <textarea style={{resize: "none"}} name="description" id="descript" placeholder='Write description about this product...' required></textarea>
             </label>
             <br /><br />
             
