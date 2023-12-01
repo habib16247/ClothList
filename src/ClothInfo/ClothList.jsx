@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./Cloth.css"
 import Cloths from './Cloths';
+import folderImage from '../assets/image/folder.png';
 
 const ClothList = () => {
     
@@ -59,11 +60,17 @@ const ClothList = () => {
         setData(findData)
      }
 
+     const deleteAll = () => {
+        setData([])
+     }
+
   return (
     <div className='ClothList'>
         <div className="formSections">
-        <h1>Cloth Items Management Data</h1>
-        <p>List Of Cloth Details</p>
+        <div className="headLine">
+            <h1>Cloth Items Management Data</h1>
+            <p>List Of Cloth Details</p>
+        </div>
         <form onSubmit={submitHandler}>
             <div className="left-form">
             <label> 
@@ -166,27 +173,38 @@ const ClothList = () => {
 
             
         </form>
-
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Cloth Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Size</th>
-                <th>Color</th>
-                <th>Description</th>
-                <th>Manu. Date</th>
-                <th>
-                    Delete
-                </th>
-            </thead>
-            <tbody>
-                {
-                    data.map((item) => <Cloths key={item.ClothId} item={item} deleteHandler={deleteHandler}/>)
-                }
-            </tbody>
-        </table>
+        {
+            data.length > 0 ? (
+                <div className="table">
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>Cloth Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Size</th>
+                        <th>Color</th>
+                        <th>Description</th>
+                        <th>Manu. Date</th>
+                        <th>
+                            Delete
+                        </th>
+                    </thead>
+                    <tbody>
+                        {
+                            data.map((item) => <Cloths key={item.ClothId} item={item} deleteHandler={deleteHandler}/>)
+                        }
+                    </tbody>
+                </table>
+                    <button onClick={deleteAll} className='removeAll'>Remove All</button>
+                </div>
+            ) : (
+                <div style={{textAlign: "center", marginTop: "20px"}}>
+                    <img style={{width: "150px"}} src={folderImage} alt="empty" />
+                    <h1>There is no Item Added!!!</h1>
+                </div>
+            )
+        }
         </div>
     </div>
   )
